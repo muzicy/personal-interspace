@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+* {padding:0; margin:0;}
+body {background:url(../images/bodybg.png) repeat top left; font-family:Georgia, "Times New Roman", Times, serif; font-size:14px/1.5; }
+a {text-decoration:none; cursor:pointer; color:#333; }
+ul li{list-style:none; }

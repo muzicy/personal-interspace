@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LCY的个人空间</title>
+<link rel="stylesheet" href="/stylesheets/base.css" />
+<link rel="stylesheet" href="/stylesheets/topnav.css" />
+<script type="text/javascript" src="/javascripts/jquery.js" ></script>
+<script type="text/javascript" src="/javascripts/upload.js"></script>
+<script type="text/javascript" src="/javascripts/detailLog.js"></script>
+<script type="text/javascript" src="/javascripts/photoHover.js"></script>
+<script type="text/javascript" src="/javascripts/togglePG.js"></script>
+<script type="text/javascript" src="/javascripts/showImg.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+var editor;
+KindEditor.ready(function(K) {
+  editor = K.create('textarea', {
+  allowImageUpload : false,
+  items : [
+    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
+    'underline', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright',
+    'insertorderedlist', 'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+  });
+});
+</script>
+
+</head>
+<body>
+  <div class="topNav">
+     <div class="fTopNav">
+	     <div class="logo"> LCY的个人主页</div>
+	 <ul class="navigition">
+	   <li><a href="/person">个人中心</a></li>
+	   <li class="indexPer"><a href="/">我的主页</a>
+	     <ul class="hiddenNav">
+		   <li><a href="/post">日志</a></li>
+		   <li><a href="/photoes">相册</a></li>
+		   <li><a href="/message">留言</a></li>
+		   <li><a href="/musicp">音乐</a></li>
+		   <li><a href="/connect">联系方式</a></li>
+		 </ul>
+	   </li>
+	 </ul>	
+	 <div class="search">
+	   <input type="text" />	   
+	   <button type="submit" value="搜索"></button>	   
+	 </div> 
+	 	 
+	 </div>	 
+  </div>
+  
+  <div class="container clear">
+     <div class="tagname">
+	   <div class="perPhoto">
+	   <a><img src=<%= touxiang.path %> alt="个人头像" /></a>
+	   <p>设置头像</p>
+	   <form method="post" enctype="multipart/form-data">
+		   <input type="file" name="tximg" id="file" />
+		   <input type="submit" id="upload" value="上传图片" name="upTX" />
+	   </form>	     
+	   </div>
+	   <ul>
+	     <li><a href="/" class=indexPage>主页</a></li>
+	     <li><a href="/post" class="log">日志</a></li>
+		 <li><a href="/photoes" class="pic">相册</a></li>
+		 <li><a href="/message" class="message">留言</a></li>
+		 <li><a href="/musicp" class="mus">音乐</a></li>
+		 <li><a href="/connect" class="cont">联系方式</a></li>		 
+	   </ul>
+	     
+	 </div>
+	 
+	 <div class="mainContainer">     
+	  
+      

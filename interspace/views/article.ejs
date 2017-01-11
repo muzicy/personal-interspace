@@ -1,0 +1,14 @@
+<%- include header %>
+
+  <div class="article">
+  
+  <p><h2><%= post.title %></h2></p>
+   <span><a class="edit" href="/edit/<%= post._id %>">编辑</a></span>
+   <span><a class="edit" href="/remove/<%= post._id %>">删除</a></span>
+  <p class="info"> 
+  日期：<%= post.time.minute %>
+  </p>
+  <p><%- post.post %></p>
+  </div>
+
+<%- include footer %>

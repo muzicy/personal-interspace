@@ -1,0 +1,25 @@
+<%- include header%>
+  <div class='showAll clear'>
+  
+  <div class="alllog clear">
+  <p class='indexTitle'>我的日志</p>
+      <% logs.forEach(function (post, index) { %>       
+	  <div class="postLog">
+      <p><h2><a href="/p/<%= post._id %>" class="articleTitle"><%= post.title %></a></h2></p>
+	  <p class="info">      
+       日期：<%= post.time.minute %>
+      </p>
+   <p><%- post.post.substr(0,30)+'...' %></p> 
+	 </div>		
+<% }) %>      
+  </div>
+  <div class="allPics clear">
+  <p class='indexTitle'>我的照片</p>
+     <% pics.forEach(function (post, index) { %>       
+	  <div class="picShow ">
+        <a> <img src=<%= post.path %> alt="" /> </a>	
+	  </div>	 
+<% }) %>
+  </div>
+  </div>
+<%- include footer%>

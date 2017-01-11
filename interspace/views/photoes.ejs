@@ -1,0 +1,76 @@
+<%- include header%>
+   
+   
+   <div class="photoIndex">  
+    <% if (success) {%>
+	   <p class="opTag"><%= success %></p>
+	 <% } %> 
+	 <% if (error) {%>
+	   <p class="opTag"><%= error %></p>
+	 <% } %>
+   <ul class="phoNav">
+     <li class='choGP'><a href="#"  >相册</a></li>
+	 <li><a href="#">照片</a></li>
+	 <li><a href="#">视频</a></li>	 
+   </ul>
+   
+   <div class="uploadPhoto">
+	    <a >上传照片
+		<div class="uploadImg">
+        <form method="post" action="/photoes" enctype="multipart/form-data" >
+		 <label for="choGal">选择相册</label> 
+		 <select id="choGal">
+		   <% gals.forEach(function(gal,index){ %>
+		     <option name="gallerySel"> <%= gal.topic %> </option>
+		   <% })%>
+		 </select>
+		 <input type="file" name="upImg" /><br/>
+	     <input type="submit" value="上传图片" />
+	    </form>
+       </div>
+       </a>
+		<a  >上传视频</a>
+		<a  class="createPhoto">创建相册
+		  <div class="createGallery"  >
+         <p>创建相册</p>
+         <form class="gallery"  method="post" >
+         <label for="topic">主题:</label><input type="text" name="galt" id="topic" maxlength="30"  /><span>0</span><span>/30</span><br/>
+	     <label for="descripGel">相册描述:</label><textarea  name="galdes" cols="20" rows="10" id="descriptGel" maxlength="2000" ></textarea><span>0</span><span>/2000</span><br/>
+	     <input type="button" class="createGal" value="创建相册"/>  
+		 </form>     
+        </div>
+		</a>
+   </div>
+   
+   <div class="gallerysPage up clear">
+    <% gals.forEach(function(gal,index){ %>
+	  <div class="galleryShow">
+	   <a class="galleryEach"> 	     
+		 <% pics.forEach(function(pic,index) {
+		    var galTitle = gal.topic.replace(/\s+$|^\s+/g,"");<!-- 不知道为什么会多出一个空格 -->
+			var picGal = pic.gal.replace(/\s+$|^\s+/g,"");			   
+		    if(galTitle == picGal) { %>
+			  <img src=<%= pic.path %>  />
+		 <%}}) %>
+		 <p class="themeP"><%= gal.topic %></p>
+		 <p class="descriptP"><%= gal.descript %></p>
+		 <a  class="delGal" href="/removeGal/<%= gal._id %>/<%= gal.topic%>">删除</a>
+		</a> 
+	  </div>	  
+	 <% })%>
+    </div>
+   <div class="pictures">
+      <% pics.forEach(function (post, index) { %>       
+	  <div class="picShow">
+        <a> <img src=<%= post.path %> alt="" /> </a>
+		<% var pathArr = post.path.split('/'); post.path = pathArr.join('-');%>
+		<a class="picDel" href="/removeImg/<%= post._id %>">删除</a>
+		<% var tempName=''; if (post.oriname.length>11){ tempName = post.oriname.substr(0,10)+'..'} else {tempName=post.oriname;} %>
+		<div><%= tempName %></div>
+	  </div>	 
+<% }) %>
+   
+   </div>
+   <%- include paging %>
+   
+<%- include footer%>
